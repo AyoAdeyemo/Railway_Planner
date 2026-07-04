@@ -41,10 +41,16 @@ def load_line(csv_file):
         "stations": stations,
         "times": travel_times
     }
+
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+DATA_DIR = BASE_DIR / "data"
+
 train_lines = {
-    "Blue": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Blue_line.csv"),
-    "Red": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Red_line.csv"),
-    "Yellow": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Yellow_line.csv")
+    "Blue": load_line(DATA_DIR / "Blue_line.csv"),
+    "Red": load_line(DATA_DIR / "Red_line.csv"),
+    "Yellow": load_line(DATA_DIR / "Yellow_line.csv"),
 }
 
 # Print complete journey
