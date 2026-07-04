@@ -52,7 +52,6 @@ train_lines = {
     "Red": load_line(DATA_DIR / "Red_line.csv"),
     "Yellow": load_line(DATA_DIR / "Yellow_line.csv"),
 }
-
 # Print complete journey
 
 def calculate_journey(start_point, end_point, line_name):
@@ -113,11 +112,9 @@ def calculate_journey(start_point, end_point, line_name):
 # Define the fastest line
 
 def find_best_route(start, end):
-
     results = []
 
     for line_name, line in train_lines.items():
-
         stations = line["stations"]
 
         if start in stations and end in stations:
@@ -127,26 +124,23 @@ def find_best_route(start, end):
 
             if start_idx < end_idx:
                 segment_times = line["times"][start_idx:end_idx]
+                route = stations[start_idx:end_idx + 1]
             else:
                 segment_times = line["times"][end_idx:start_idx]
+                route = stations[end_idx:start_idx + 1][::-1]
 
             total = timedelta()
-
             for t in segment_times:
                 total += time_to_timedelta(t)
 
-            results.append((line_name, total))
+            results.append((line_name, total, route))
 
-    if len(results) == 0:
-        print("\nNo train line connects these two stations.")
-        return
+    if not results:
+        return None, None, None
 
-    best_line, best_time = min(results, key=lambda x: x[1])
+    best_line, best_time, best_route = min(results, key=lambda x: x[1])
 
-    print(f"\nFastest line: {best_line}")
-    print(f"Total travel time: {best_time}")
-
-    calculate_journey(start, end, best_line)
+    return best_line, best_time, best_route
 
 
 # Main Function
