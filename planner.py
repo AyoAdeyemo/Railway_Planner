@@ -41,14 +41,11 @@ def load_line(csv_file):
         "stations": stations,
         "times": travel_times
     }
-
-
 train_lines = {
-    "Blue": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\Train_Project\Blue_line.csv"),
-    "Red": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\Red_line.csv"),
-    "Yellow": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\Train_Project\Yellow_line.csv")
+    "Blue": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Blue_line.csv"),
+    "Red": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Red_line.csv"),
+    "Yellow": load_line(r"C:\Users\Ayobami Adeyemo\Downloads\artuvia\code files\code files\train_project\Yellow_line.csv")
 }
-
 
 # Print complete journey
 
