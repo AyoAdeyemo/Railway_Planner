@@ -24,7 +24,12 @@ destination = st.selectbox("Select destination station:", stations)
 if st.button("Find Route"):
     find_best_route(start, destination)
 
-best_line, best_time, route = find_best_route(start, destination)
+result = find_best_route(start, destination)
+
+if result[0] is None:
+    st.error("No route found")
+else:
+    best_line, best_time, route = result
 
 st.success(f"Best line: {best_line}")
 
@@ -39,7 +44,7 @@ for stop in route:
     st.write("🚉", stop)
 
 
-departure = datetime.now()
+departure = datetime.datetime.now()
 
 arrival = departure + best_time
 
