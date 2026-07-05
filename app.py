@@ -1,4 +1,5 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import streamlit as st
 
@@ -54,7 +55,7 @@ if st.button("Find Route"):
     with col2:
         st.metric("Train Line", best_line)
 
-    departure = datetime.now()
+    departure = datetime.now(ZoneInfo("Africa/Lagos"))
     arrival = departure + best_time
 
     st.write(f"Departure: {departure.strftime('%H:%M')}")
