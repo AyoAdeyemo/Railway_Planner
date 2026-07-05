@@ -136,8 +136,8 @@ def find_best_route(start, end):
             results.append((line_name, total, route))
 
     if not results:
-        #return None, None, None
-        return ("", timedelta(0), [])
+        return None, None, None
+       # return ("", timedelta(0), [])
 
     best_line, best_time, best_route = min(results, key=lambda x: x[1])
 
