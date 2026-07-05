@@ -1,9 +1,14 @@
 ﻿station_id,name,estimated_segment_travel_min
-RL-AGB,Agbado,0
-RL-IJU,Iju,7.14
-RL-AGG,Agege,7.14
-RL-IKJ,Ikeja,7.14
-RL-OSH,Oshodi,7.14
-RL-MUS,Mushin,7.14
-RL-YAB,Yaba,7.14
-RL-OYI,Oyingbo,7.14
+BL-MAR,Marina,0
+BL-EER,Ebute Ero,2.92
+BL-ID,Iddo,2.92
+BL-NAT,National Theatre,2.92
+BL-IGA,Iganmu,2.92
+BL-ALA,Alaba,2.92
+BL-MIL,Mile 2,2.92
+BL-FES,Festac,2.92
+BL-ALK,Alakija,2.92
+BL-TRD,Trade Fair,2.92
+BL-VOL,Volkswagen,2.92
+BL-LAS,LASU,2.92
+BL-OKO,Okokomaiko,2.92
