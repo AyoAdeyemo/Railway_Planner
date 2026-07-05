@@ -26,7 +26,7 @@ if st.button("Find Route"):
 
 result = find_best_route(start, destination)
 
-if not result:
+if result is None:
     st.error("No route found")
     st.stop()
 
@@ -34,8 +34,11 @@ best_line, best_time, route = result
 
 st.success(f"Best line: {best_line}")
 
-total_minutes = best_time.total_seconds() / 60
-st.metric("Travel Time (min)", round(total_minutes, 1))
+total_seconds = int(best_time.total_seconds())
+minutes = total_seconds // 60
+seconds = total_seconds % 60
+
+st.metric("Travel Time", f"{minutes}m {seconds}s")
 
 st.subheader("Journey")
 
