@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 import streamlit as st
 
@@ -26,17 +26,16 @@ if st.button("Find Route"):
 
 result = find_best_route(start, destination)
 
-if result[0] is None:
+if not result:
     st.error("No route found")
-else:
-    best_line, best_time, route = result
+    st.stop()
+
+best_line, best_time, route = result
 
 st.success(f"Best line: {best_line}")
 
-st.metric(
-    "Travel Time",
-    str(best_time)
-)
+total_minutes = best_time.total_seconds() / 60
+st.metric("Travel Time (min)", round(total_minutes, 1))
 
 st.subheader("Journey")
 
@@ -44,7 +43,7 @@ for stop in route:
     st.write("🚉", stop)
 
 
-departure = datetime.datetime.now()
+departure = datetime.now()
 
 arrival = departure + best_time
 
